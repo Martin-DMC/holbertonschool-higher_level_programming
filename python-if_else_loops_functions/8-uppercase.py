@@ -7,4 +7,4 @@ def uppercase(str):
             resultado += chr(mayuscula_ascii)
         else:
             resultado += letra
-    print(resultado)
+    print("{}".format(resultado))
