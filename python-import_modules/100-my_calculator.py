@@ -12,7 +12,7 @@ if __name__ == "__main__":
     signo = argv[2]
     a = int(argv[1])
     b = int(argv[3])
-    
+
     if signo == "+":
         res = add(a, b)
         print("{:d} + {:d} = {:d}".format(a, b, res))
