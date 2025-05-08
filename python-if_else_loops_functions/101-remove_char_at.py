@@ -10,4 +10,3 @@ def remove_char_at(str, n):
             i += 1
             continue
     return str_new
-
