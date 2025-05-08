@@ -26,8 +26,8 @@ if __name__ == "__main__":
         print("{:d} * {:d} = {:d}".format(a, b, res))
         exit(0)
     elif signo == "/":
-        res = float(div(a, b))
-        print("{:d} / {:d} = {:.2f}".format(a, b, res))
+        res = div(a, b)
+        print("{:d} / {:d} = {:d}".format(a, b, res))
         exit(0)
     else:
         print(
