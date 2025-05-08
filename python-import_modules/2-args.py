@@ -6,10 +6,10 @@ if __name__ == "__main__":
     argc = (len(argv) - 1)
 
     if argc == 0:
-        print(f"{argc} argument.")
+        print(f"{argc} arguments.")
     elif argc > 0:
         if argc == 1:
-            print(f"{argc} argument.")
+            print(f"{argc} argument:")
             print(f"1: {argv[1]}")
         else:
             i = 1
