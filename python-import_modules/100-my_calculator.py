@@ -13,25 +13,24 @@ if __name__ == "__main__":
     a = int(argv[1])
     b = int(argv[3])
     
-    match signo:
-        case "+":
-            res = add(a, b)
-            print("{:d} + {:d} = {:d}".format(a, b, res))
-            exit(0)
-        case "-":
-            res = sub(a, b)
-            print("{:d} - {:d} = {:d}".format(a, b, res))
-            exit(0)
-        case "*":
-            res = mul(a, b)
-            print("{:d} * {:d} = {:d}".format(a, b, res))
-            exit(0)
-        case "/":
-            res = float(div(a, b))
-            print("{:d} / {:d} = {:.2f}".format(a, b, res))
-            exit(0)
-        case _:
-            print(
-                "Unknown operator. Available operators: +, -, * and /"
-                )
-            exit(1)
+    if signo == "+":
+        res = add(a, b)
+        print("{:d} + {:d} = {:d}".format(a, b, res))
+        exit(0)
+    elif signo == '-':
+        res = sub(a, b)
+        print("{:d} - {:d} = {:d}".format(a, b, res))
+        exit(0)
+    elif signo == "*":
+        res = mul(a, b)
+        print("{:d} * {:d} = {:d}".format(a, b, res))
+        exit(0)
+    elif signo == "/":
+        res = float(div(a, b))
+        print("{:d} / {:d} = {:.2f}".format(a, b, res))
+        exit(0)
+    else:
+        print(
+            "Unknown operator. Available operators: +, -, * and /"
+            )
+        exit(1)
