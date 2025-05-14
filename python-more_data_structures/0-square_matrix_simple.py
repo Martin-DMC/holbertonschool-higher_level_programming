@@ -7,3 +7,4 @@ def square_matrix_simple(matrix=[]):
             valor = filas[i]
             filas[i] = valor * valor
     return copy
+
