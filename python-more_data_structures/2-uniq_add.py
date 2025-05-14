@@ -4,5 +4,5 @@ def uniq_add(my_list=[]):
     resultado = 0
     for num in suma:
         resultado += num
-    
+
     return resultado
