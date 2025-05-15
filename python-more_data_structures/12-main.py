@@ -21,8 +21,8 @@ print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 roman_number = "XLIX"
 print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 
-roman_number = "CM"
+roman_number = "LXXXIX"
 print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 
-roman_number = "CDXLIV"
+roman_number = "XXI"
 print("{} = {}".format(roman_number, roman_to_int(roman_number)))
