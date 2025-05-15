@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
     if not roman_string or not isinstance(roman_string, str):
-       return 0
+        return 0
     else:
         num = 0
         largo = len(roman_string)
         i = 0
         while i < largo:
             if roman_string[i] == "I":
-                    num += 1
-                    i += 1
+                num += 1
+                i += 1
             elif roman_string[i] == "V":
                 if i > 0 and roman_string[i - 1] == "I":
                     num += 3
