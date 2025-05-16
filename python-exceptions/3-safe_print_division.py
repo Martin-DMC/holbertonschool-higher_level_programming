@@ -2,9 +2,13 @@
 def safe_print_division(a, b):
     resultado = None
     try:
-        resultado = (a / b)
+        if a is None or b is None:
+            raise TypeError("Los argumentos no pueden ser None")
+        resultado = a / b
     except ZeroDivisionError:
-        None
+        return None
+    except TypeError as e:
+        resultado = None
     finally:
         if resultado is not None:
             print("Inside result: {:.2f}".format(resultado))
