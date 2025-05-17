@@ -8,7 +8,8 @@ def list_division(my_list_1, my_list_2, list_length):
             a = int(my_list_1[i])
             b = int(my_list_2[i])
             num = a / b
-        except TypeError and ValueError:
+            num = round(num, 1)
+        except (TypeError, ValueError):
             num = 0
             print("wrong type")
         except IndexError:
