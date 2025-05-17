@@ -3,7 +3,8 @@ def list_division(my_list_1, my_list_2, list_length):
     i = 0
     num = 0
     new_list = []
-    while i < list_length:
+    max_length = max(len(my_list_1), len(my_list_2))
+    while i < list_length and i < max_length:
         try:
             a = int(my_list_1[i])
             b = int(my_list_2[i])
