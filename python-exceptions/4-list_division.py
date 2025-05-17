@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 def list_division(my_list_1, my_list_2, list_length):
+    if not isinstance(my_list_1, list) or my_list_1 is None:
+        raise TypeError("my_list_1 debe ser una lista y no puede ser None")
+    if not isinstance(my_list_2, list) or my_list_2 is None:
+        raise TypeError("my_list_2 debe ser una lista y no puede ser None")
+    if list_length < 0:
+        raise ValueError("list_length no puede ser menor que 0")
     i = 0
     num = 0
     new_list = []
