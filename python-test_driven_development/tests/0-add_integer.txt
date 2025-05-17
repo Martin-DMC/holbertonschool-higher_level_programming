@@ -1,5 +1,43 @@
 >>> module = __import__('0-add_integer')
 >>> add_integer = module.add_integer
+>>> add_integer(1, 2)
+3
+>>> module = __import__('0-add_integer')
+>>> add_integer = module.add_integer
+>>> add_integer(100, -2)
+98
+>>> module = __import__('0-add_integer')
+>>> add_integer = module.add_integer
+>>> add_integer(2)
+100
+>>> module = __import__('0-add_integer')
+>>> add_integer = module.add_integer
+>>> add_integer(100.3, -2)
+98
+>>> module = __import__('0-add_integer')
+>>> add_integer = module.add_integer
+>>> add_integer(4, "School")
+Traceback (most recent call last):
+  File "<doctest 0-add_integer.txt[14]>", line 1, in <module>
+    add_integer(4, "School")
+  File "/root/dev/holbertonschool-higher_level_programming/python-test_driven_development/0-add_integer.py", line 17, in add_integer
+    raise TypeError("b must be an integer")
+TypeError: b must be an integer
+>>> module = __import__('0-add_integer')
+>>> add_integer = module.add_integer
+>>> add_integer(None)
+Traceback (most recent call last):
+  File "<doctest 0-add_integer.txt[17]>", line 1, in <module>
+    add_integer(None)
+  File "/root/dev/holbertonschool-higher_level_programming/python-test_driven_development/0-add_integer.py", line 15, in add_integer
+    raise TypeError("a must be an integer")
+TypeError: a must be an integer
+>>> module = __import__('0-add_integer')
+>>> add_integer = module.add_integer
+>>> add_integer(5.5, 4.5)
+9
+>>> module = __import__('0-add_integer')
+>>> add_integer = module.add_integer
 >>> try:
 ...     add_integer(1e300, 5)
 ... except TypeError as e:
