@@ -37,7 +37,7 @@ def matrix_divided(matrix, div):
         for num in fila:
             if not isinstance(num, (int, float)):
                 raise TypeError("matrix must be a matrix \
-                    (list of lists) of integers/floats")
+(list of lists) of integers/floats")
 
     nueva_matriz = []
     for fila in matrix:
