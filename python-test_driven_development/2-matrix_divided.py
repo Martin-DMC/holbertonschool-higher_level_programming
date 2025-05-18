@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """
-   matrix != enteros o flotantes: except TypeError 'matrix must be a matrix (list of lists) of integers/floats'
+   matrix != enteros o flotantes: except TypeError 
+   'matrix must be a matrix (list of lists) of integers/floats'
 
-   listas != tamaño: except TypeError 'Each row of the matrix must have the same size'
+   listas != tamaño: except TypeError 
+   'Each row of the matrix must have the same size'
 
    div != int o float: except TypeError 'div must be a number'
 
@@ -10,6 +12,8 @@
 
    retorna nueva matrix
 """
+
+
 def matrix_divided(matrix, div):
     """
     divide los elementos de las filas con div
@@ -32,7 +36,8 @@ def matrix_divided(matrix, div):
     for fila in matrix:
         for num in fila:
             if not isinstance(num, (int, float)):
-                raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+                raise TypeError("matrix must be a matrix \
+                    (list of lists) of integers/floats")
 
     nueva_matriz = []
     for fila in matrix:
