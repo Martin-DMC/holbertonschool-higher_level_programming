@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
-   matrix != enteros o flotantes: except TypeError 
+   matrix != enteros o flotantes: except TypeError
    'matrix must be a matrix (list of lists) of integers/floats'
 
-   listas != tamaño: except TypeError 
+   listas != tamaño: except TypeError
    'Each row of the matrix must have the same size'
 
    div != int o float: except TypeError 'div must be a number'
