@@ -1,0 +1,18 @@
+>>> module = __import__('5-text_indentation')
+>>> text_indentation = module.text_indentation
+>>> text_indentation("hola bro. como estas")
+hola bro.
+<BLANKLINE>
+como estas
+>>> text_indentation("Demetrio. Sacarias :Saturnino ?Fajardo")
+Demetrio.
+<BLANKLINE>
+Sacarias :
+<BLANKLINE>
+Saturnino ?
+<BLANKLINE>
+Fajardo
+>>> text_indentation(1)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
