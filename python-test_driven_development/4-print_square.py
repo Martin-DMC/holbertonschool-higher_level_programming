@@ -9,6 +9,8 @@ raises:
     size < 0 --> ValueError
     size != int, size < 0.0 --> TypeError
 """
+
+
 def print_square(size):
     """si el argumento logra pasar por los filtros
     la funcion imprime el cuadrado indicado, sino
