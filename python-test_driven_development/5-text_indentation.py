@@ -40,7 +40,6 @@ def text_indentation(text):
         for i, letra in enumerate(fila):
             if letra == ' ' and i == 0:
                 print("")
+                print("")
             else:
                 print(letra, end='')
-        if not len(lista) == 1 or fila != lista[-1]:
-            print("")

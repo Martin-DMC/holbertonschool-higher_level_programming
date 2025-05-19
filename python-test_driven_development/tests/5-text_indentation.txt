@@ -7,9 +7,7 @@ como estas
 >>> text_indentation("Demetrio. Sacarias :Saturnino ?Fajardo")
 Demetrio.
 <BLANKLINE>
-Sacarias :
-Saturnino ?
-Fajardo
+Sacarias :Saturnino ?Fajardo
 >>> text_indentation(1)
 Traceback (most recent call last):
     ...
