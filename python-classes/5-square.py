@@ -43,7 +43,7 @@ class Square():
             int: El área del cuadrado.
         """
         return self.__size * self.__size
-    
+
     def my_print(self):
         """
         imprime el cuadrado 'visual'
@@ -53,6 +53,6 @@ class Square():
         size = self.__size
         if size == 0:
             print("")
-        else: 
+        else:
             for i in range(size):
-                    print("#" * size)
+                print("#" * size)
