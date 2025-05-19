@@ -80,4 +80,4 @@ class Square():
                 print("")
                 i += 1
             for i in range(size):
-                print("_" * left + "#" * size)
+                print(" " * left + "#" * size)
