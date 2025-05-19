@@ -42,7 +42,7 @@ def text_indentation(text):
                 pass
             else:
                 print(letra, end='')
-        if not len(lista) == 1:
+        if not len(lista) == 1 or fila != lista[-1]:
             print("")
         if fila != lista[-1]:
             print("")
