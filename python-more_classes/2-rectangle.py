@@ -57,18 +57,20 @@ class Rectangle():
 
     def area(self):
         """
-        calcula el area del rectangulo
-
+        calcula el area del rectangulo.
         return:
-            resultado de la operacion
+            resultado de la operacion o 0
         """
+        if self.__width == 0 or self.__height == 0:
+            return 0
         return self.__width * self.__height
 
     def perimeter(self):
         """
-        calcula el perimetro del rectangulo
-
+        calcula el perimetro del rectangulo.
         return:
             resultado de la operacion
         """
+        if self.__height == 0 or self.__width == 0:
+            return 0
         return (self.__width * 2) + (self.__height * 2)
