@@ -102,4 +102,6 @@ class Square():
                 i += 1
             for i in range(size):
                 cadena += (" " * left + "#" * size + "\n")
+            if cadena.endswith("\n"):
+            cadena = cadena[:-1]
         return cadena
