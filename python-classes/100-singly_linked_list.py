@@ -73,7 +73,6 @@ class SinglyLinkedList():
         cabeza = self.__head
         linkedlist = ""
         if cabeza is None:
-            linkedlist = "\n"
             return linkedlist
         while cabeza. next_node is not None:
             linkedlist += (str(cabeza.data) + "\n")
