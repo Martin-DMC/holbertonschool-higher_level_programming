@@ -22,7 +22,7 @@ class Node():
             raise TypeError("next_node must be a Node object")
         self.__data = data
         self.__next_node = next_node
-    
+
     @property
     def data(self):
         return self.__data
@@ -30,7 +30,7 @@ class Node():
     @property
     def next_node(self):
         return self.__next_node
-    
+
     @data.setter
     def data(self, value):
         if not isinstance(value, int):
@@ -43,23 +43,24 @@ class Node():
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
+
 class SinglyLinkedList():
     """
-    esta clase representa la lista enlazada simple 
+    esta clase representa la lista enlazada simple
     """
     def __init__(self):
         self.__head = None
 
     def sorted_insert(self, value):
         node = Node(value)
-        if self.__head == None:
+        if self.__head is None:
             self.__head = node
         else:
             tmp = self.__head
             prev = None
             if tmp.data > node.data:
                 node.next_node = tmp
-                self.__head = node 
+                self.__head = node
             else:
                 while tmp is not None and node.data > tmp.data:
                     prev = tmp
@@ -70,7 +71,7 @@ class SinglyLinkedList():
     def __str__(self):
         cabeza = self.__head
         linkedlist = ""
-        while cabeza. next_node != None:
+        while cabeza. next_node is not None:
             linkedlist += (str(cabeza.data) + "\n")
             cabeza = cabeza.next_node
         linkedlist += str(cabeza.data)
