@@ -91,7 +91,7 @@ class Square():
         cadena = ""
 
         if size == 0:
-            cadena += "\n"
+            cadena += ""
 
         else:
             left = position[0]
