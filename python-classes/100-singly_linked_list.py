@@ -49,28 +49,32 @@ class SinglyLinkedList():
     esta clase representa la lista enlazada simple
     """
     def __init__(self):
+        """inicializa una nueva instancia"""
         self.__head = None
 
     def sorted_insert(self, value):
+        """inserta un nuevo nodo siempre en pos ascendente
+        arg:
+            value: data del nodo
+        """
         node = Node(value)
-        if self.__head is None:
+        if self.__head is None or node.data <= self.__head.data:
+            node.next_node = self.__head
             self.__head = node
-        else:
-            tmp = self.__head
-            prev = None
-            if tmp.data > node.data:
-                node.next_node = tmp
-                self.__head = node
-            else:
-                while tmp is not None and node.data > tmp.data:
-                    prev = tmp
-                    tmp = tmp.next_node
-                prev.next_node = node
-                node.next_node = tmp
+            return
+
+        tmp = self.__head
+        while tmp.next_node is not None and tmp.next_node.data < node.data:
+            tmp = tmp.next_node
+        node.next_node = tmp.next_node
+        tmp.next_node = node
 
     def __str__(self):
         cabeza = self.__head
         linkedlist = ""
+        if cabeza is None:
+            linkedlist = "\n"
+            return linkedlist
         while cabeza. next_node is not None:
             linkedlist += (str(cabeza.data) + "\n")
             cabeza = cabeza.next_node
