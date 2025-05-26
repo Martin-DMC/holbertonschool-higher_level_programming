@@ -1,0 +1,40 @@
+# tests/1-my_list.txt
+
+# Importamos la clase MyList desde el módulo principal
+>>> MyList = __import__('1-my_list').MyList
+
+# --- Test Case 1: Lista básica con varios elementos ---
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(my_list) # La lista original no debe ser modificada
+[1, 4, 2, 3, 5]
+
+# --- Test Case 2: Lista vacía ---
+>>> empty_list = MyList()
+>>> empty_list.print_sorted()
+[]
+
+# --- Test Case 3: Lista con un solo elemento ---
+>>> single_element_list = MyList()
+>>> single_element_list.append(42)
+>>> single_element_list.print_sorted()
+[42]
+
+# --- Test Case 4: Lista con elementos duplicados ---
+>>> duplicate_list = MyList()
+>>> duplicate_list.append(3)
+>>> duplicate_list.append(1)
+>>> duplicate_list.append(3)
+>>> duplicate_list.append(2)
+>>> duplicate_list.print_sorted()
+[1, 2, 3, 3]
+>>> print(duplicate_list) # Verificar que la original sigue igual
+[3, 1, 3, 2]
