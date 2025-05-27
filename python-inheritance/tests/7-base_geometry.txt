@@ -27,6 +27,7 @@ Probando integer_validator con tipos de datos inválidos:
 ... except TypeError as e:
 ...     print(e)
 integer_validator() missing 1 required positional argument: 'value'
+
 # Test present: integer_validator("age", "4") - Una cadena
 >>> try:
 ...     bg.integer_validator("age", "4")
