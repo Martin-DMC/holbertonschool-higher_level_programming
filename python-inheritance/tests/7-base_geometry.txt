@@ -26,7 +26,7 @@ Probando integer_validator con tipos de datos inválidos:
 ...     bg.integer_validator("age")
 ... except TypeError as e:
 ...     print(e)
-BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+integer_validator() missing 1 required positional argument: 'value'
 
 # Test present: integer_validator("age", (4,)) - Una tupla
 >>> try:
