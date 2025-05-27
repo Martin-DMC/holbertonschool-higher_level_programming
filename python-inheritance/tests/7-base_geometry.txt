@@ -1,0 +1,32 @@
+Probando la clase BaseGeometry y sus métodos.
+>>> module = __import__('7-base_geometry')
+>>> BaseGeometry = module.BaseGeometry
+
+>>> bg = BaseGeometry()
+>>> isinstance(bg, BaseGeometry)
+True
+
+# --- Pruebas para integer_validator ---
+>>> bg.integer_validator("my_integer", 10)
+>>> try:
+...     bg.integer_validator("width", "invalid")
+... except TypeError as e:
+...     print(e)
+width must be an integer
+>>> try:
+...     bg.integer_validator("height", 0)
+... except ValueError as e:
+...     print(e)
+height must be greater than 0
+>>> try:
+...     bg.integer_validator("size", -5)
+... except ValueError as e:
+...     print(e)
+size must be greater than 0
+
+# --- Pruebas para area ---
+>>> try:
+...     bg.area()
+... except Exception as e:
+...     print(e)
+area() is not implemented
