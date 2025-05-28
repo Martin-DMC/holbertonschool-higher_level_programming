@@ -31,7 +31,7 @@ class VerboseList(list):
         try:
             print(f"Removed {item} from the list.")
             super().remove(item)
-        except:
+        except ValueError:
             raise ValueError("valor inexistente")
 
     def pop(self, index=None):
@@ -48,5 +48,5 @@ class VerboseList(list):
                 item = self[-1]
                 print(f"Popped {item} from the list.")
                 super().pop()
-        except:
+        except IndexError:
             print("error de indice")
