@@ -40,8 +40,6 @@ class Circle(Shape):
         """
         funcion que calcula el area de un circulo
         """
-        if self.__radius <= 0:
-            return 0.0
         area = math.pi * (self.__radius ** 2)
         return area
 
@@ -49,8 +47,6 @@ class Circle(Shape):
         """
         funcion que calcula el perimetro del circulo
         """
-        if self.__radius <= 0:
-            return 0.0
         perimetro = 2 * math.pi * self.__radius
         return perimetro
 
@@ -70,8 +66,6 @@ class Rectangle(Shape):
         """
         funcion que calcula el area de un rectangulo
         """
-        if self.__width <= 0 or self.__height <= 0:
-            return 0.0
         area = self.__width * self.__height
         return area
 
@@ -79,8 +73,6 @@ class Rectangle(Shape):
         """
         funcion que calcula el perimetro de un rectangulo
         """
-        if self.__width <= 0 or self.__height <= 0:
-            return 0.0
         perimetro = (self.__width + self.__height) * 2
         return perimetro
 
