@@ -6,3 +6,16 @@ rectangle = Rectangle(width=4, height=7)
 
 shape_info(circle)
 shape_info(rectangle)
+
+print("------------------")
+circle = Circle(radius=-6)
+rectangle = Rectangle(width=0, height=7)
+
+shape_info(circle)
+shape_info(rectangle)
+print("------------------")
+circle = Circle(radius=0)
+rectangle = Rectangle(width=5, height=0)
+
+shape_info(circle)
+shape_info(rectangle)
