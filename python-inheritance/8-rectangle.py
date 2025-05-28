@@ -25,6 +25,7 @@ class BaseGeometry():
         """
         raise Exception("area() is not implemented")
 
+
 class Rectangle(BaseGeometry):
     """
     clase rectangulo la cual valida los valores entregados
