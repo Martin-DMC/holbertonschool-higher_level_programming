@@ -1,29 +1,11 @@
 #!/usr/bin/python3
 """
-modulo que crea la clase BaseGeometry() y la subclase Rectangle()
+modulo que crea la subclase Rectangle() que hereda de
+BaseGeometry()
 """
 
 
-class BaseGeometry():
-    """
-    clase BaseGeometry()
-    valida los enteros y tiene una 'futura' funcion que calcula
-    el area
-    """
-    def integer_validator(self, name, value):
-        """
-        funcion para validar los atributos entregados
-        """
-        if type(value) is not int:
-            raise TypeError(f"{name} must be an integer")
-        if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
-
-    def area(self):
-        """
-        funcion 'que va' a calcular el area del objeto
-        """
-        raise Exception("area() is not implemented")
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
