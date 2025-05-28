@@ -18,6 +18,7 @@ class Shape(ABC):
         """
         pass
 
+    @abstractmethod
     def perimeter(self):
         """
         funcion que calcula el perimetro de la forma
