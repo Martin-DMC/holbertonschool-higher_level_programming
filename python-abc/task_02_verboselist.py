@@ -43,10 +43,12 @@ class VerboseList(list):
             if index is not None:
                 item = self[index]
                 print(f"Popped {item} from the list.")
-                super().pop(index)
+                pop_item = super().pop(index)
+                return pop_item
             else:
                 item = self[-1]
                 print(f"Popped {item} from the list.")
-                super().pop()
+                pop_item = super().pop()
+                return pop_item
         except IndexError:
             print("error de indice")
