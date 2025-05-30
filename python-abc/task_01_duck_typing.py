@@ -47,7 +47,7 @@ class Circle(Shape):
         """
         funcion que calcula el perimetro del circulo
         """
-        perimetro = 2 * math.pi * self.__radius
+        perimetro = 2 * math.pi * abs(self.__radius)
         return perimetro
 
 

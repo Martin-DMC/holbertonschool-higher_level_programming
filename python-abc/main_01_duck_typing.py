@@ -19,3 +19,6 @@ rectangle = Rectangle(width=5, height=0)
 
 shape_info(circle)
 shape_info(rectangle)
+
+print("------------------")
+circle = Circle(radius=-5)
