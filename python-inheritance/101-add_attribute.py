@@ -18,7 +18,7 @@ def add_attribute(clase, atrib, change):
         raise TypeError("can't add new attribute")
     if hasattr(tipo, '__slots__'):
         if atrib not in tipo.__slots__:
-            raise TypeError("can't add new atribute")
+            raise TypeError("can't add new attribute")
         else:
             setattr(clase, atrib, change)
     else:
