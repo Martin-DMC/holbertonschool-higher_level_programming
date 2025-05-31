@@ -14,16 +14,12 @@ def add_attribute(clase, atrib, change):
     tipo = type(clase)
     tipos = (str, bool, float, tuple, type(None))
 
-    if isinstance(clase, tipos):
+    if type(clase) is int or isinstance(clase, tipos):
         raise TypeError("can't add new attribute")
-    else:
-        if hasattr(tipo, '__slots__'):
-            if atrib not in tipo.__slots__:
-                if not hasattr(tipo, '__dict__'):
-                    raise TypeError("can't add new atribute")
-                else:
-                    raise TypeError("can't add new attribute")
-            else:
-                setattr(clase, atrib, change)
+    if hasattr(tipo, '__slots__'):
+        if atrib not in tipo.__slots__:
+            raise TypeError("can't add new atribute")
         else:
             setattr(clase, atrib, change)
+    else:
+        setattr(clase, atrib, change)
