@@ -12,7 +12,7 @@ def add_attribute(clase, atrib, change):
         TypeError en caso de no ser posible
     """
     tipo = type(clase)
-    tipos = (int, str, bool, float, tuple, type(None))
+    tipos = (str, bool, float, tuple, type(None))
 
     if isinstance(clase, tipos):
         raise TypeError("can't add new attribute")
