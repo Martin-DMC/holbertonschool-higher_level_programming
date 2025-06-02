@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """
 define la funcion write_file
 la cual escribe en un archivo o lo crea si no existe
