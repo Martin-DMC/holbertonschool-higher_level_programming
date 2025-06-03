@@ -22,7 +22,7 @@ try:
         else:
             lista.append(dato)
     save_to_json(lista, "add_item.json")
-except ():
+except FileNotFoundError:
     lista = []
     datos = sys.argv
 
