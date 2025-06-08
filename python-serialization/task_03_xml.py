@@ -36,23 +36,7 @@ def deserialize_from_xml(filename):
         for child in raiz:
             key = child.tag
             value = child.text
-            if value is not None:
-                if value.isdigit():
-                    diccionary[key] = int(value)
-                elif value.replace('.', '', 1).isdigit()\
-                        and value.count('.') < 2:
-                    try:
-                        diccionary[key] = float(value)
-                    except ValueError:
-                        diccionary[key] = value
-                elif value.lower() == 'true':
-                    diccionary[key] = True
-                elif value.lower() == 'false':
-                    diccionary[key] = False
-                else:
-                    diccionary[key] = value
-            else:
-                diccionary[key] = None
+            diccionary[key] = value
     except FileNotFoundError:
         return None
     except ET.ParseError:
