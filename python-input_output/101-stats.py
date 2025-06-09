@@ -21,31 +21,36 @@ def print_data(dictionary):
             print(f"{i}: {dictionary[i]}")
 
 
-entrada = sys.stdin
-tamaño_archivo = 0
-cont_status = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
-cont_lineas = 0
-try:
-    for line in entrada:
-        lista = list(line.split(' '))
-        status = lista[-2]
-        size = lista[-1]
-        try:
-            status = int(status)
-            size = int(size)
-        except ValueError:
-            continue
-        tamaño_archivo += size
-        if status in cont_status.keys():
-            cont_status[status] += 1
-        cont_lineas += 1
-        if (cont_lineas % 10) == 0:
-            cont_lineas = 0
-            print(f"File size: {tamaño_archivo}")
-            print_data(cont_status)
-            tamaño_archivo = 0
-            for key in cont_status.keys():
-                cont_status[key] = 0
-except KeyboardInterrupt:
-    print(f"File size: {tamaño_archivo}")
-    print_data(cont_status)
+def main():
+    entrada = sys.stdin
+    tamaño_archivo = 0
+    cont_status = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+    cont_lineas = 0
+    try:
+        for line in entrada:
+            lista = list(line.split(' '))
+            status = lista[-2]
+            size = lista[-1]
+            try:
+                status = int(status)
+                size = int(size)
+            except ValueError:
+                continue
+            tamaño_archivo += size
+            if status in cont_status.keys():
+                cont_status[status] += 1
+            cont_lineas += 1
+            if (cont_lineas % 10) == 0:
+                cont_lineas = 0
+                print(f"File size: {tamaño_archivo}")
+                print_data(cont_status)
+                tamaño_archivo = 0
+                for key in cont_status.keys():
+                    cont_status[key] = 0
+    except KeyboardInterrupt:
+        print(f"File size: {tamaño_archivo}")
+        print_data(cont_status)
+
+
+if __name__ == '__main__':
+    main()
