@@ -34,6 +34,8 @@ def main():
             try:
                 status = int(status)
                 size = int(size)
+            except IndexError:
+                continue
             except ValueError:
                 continue
             tamaño_archivo += size
