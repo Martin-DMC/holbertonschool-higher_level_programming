@@ -25,18 +25,19 @@ def main():
     entrada = sys.stdin
     tamaño_archivo = 0
     cont_status = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0,
-    405: 0, 500: 0}
+                   405: 0, 500: 0}
     cont_lineas = 0
     try:
         for line in entrada:
-            lista = list(line.split(' '))
-            status = lista[-2]
-            size = lista[-1]
+            try:
+                lista = list(line.split(' '))
+                status = lista[-2]
+                size = lista[-1]
+            except IndexError:
+                continue
             try:
                 status = int(status)
                 size = int(size)
-            except IndexError:
-                continue
             except ValueError:
                 continue
             tamaño_archivo += size
