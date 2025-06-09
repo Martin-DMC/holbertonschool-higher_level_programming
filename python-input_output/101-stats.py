@@ -44,7 +44,6 @@ def main():
                 cont_lineas = 0
                 print(f"File size: {tamaño_archivo}")
                 print_data(cont_status)
-                tamaño_archivo = 0
                 for key in cont_status.keys():
                     cont_status[key] = 0
         print(f"File size: {tamaño_archivo}")
