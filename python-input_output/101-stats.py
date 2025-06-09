@@ -44,8 +44,6 @@ def main():
                 cont_lineas = 0
                 print(f"File size: {tamaño_archivo}")
                 print_data(cont_status)
-                for key in cont_status.keys():
-                    cont_status[key] = 0
         print(f"File size: {tamaño_archivo}")
         print_data(cont_status)
     except KeyboardInterrupt:
