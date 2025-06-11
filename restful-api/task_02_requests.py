@@ -28,10 +28,15 @@ def fetch_and_save_posts():
     respuesta = requests.get('https://jsonplaceholder.typicode.com/posts')
     if respuesta.status_code == 200:
         py_dicts = respuesta.json()
-        filas = py_dicts[0].keys()
-        filas = [header for header in filas if header
-                 in ['id', 'title', 'body']]
+        lista_csv = []
+        for dic in py_dicts:
+            _id = dic['id']
+            title = dic['title']
+            body = dic['body']
+            new_dic = {'id': _id, 'title': title, 'body': body}
+            lista_csv.append(new_dic)
+        filas = lista_csv[0].keys()
         with open("posts.csv", mode="w", newline='') as archivo:
             constructor = csv.DictWriter(archivo, fieldnames=filas)
             constructor.writeheader()
-            constructor.writerows(py_dicts)
+            constructor.writerows(lista_csv)
