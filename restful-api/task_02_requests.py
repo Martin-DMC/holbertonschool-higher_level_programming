@@ -29,6 +29,8 @@ def fetch_and_save_posts():
     if respuesta.status_code == 200:
         py_dicts = respuesta.json()
         filas = py_dicts[0].keys()
+        filas = [header for header in filas if header
+                 in ['id', 'title', 'body']]
         with open("posts.csv", mode="w", newline='') as archivo:
             constructor = csv.DictWriter(archivo, fieldnames=filas)
             constructor.writeheader()
