@@ -13,7 +13,7 @@ def fetch_and_print_posts():
     if the status code is ok (200) it prints all the post titles.
     """
     respuesta = requests.get('https://jsonplaceholder.typicode.com/posts')
-    print(f"Status code: {respuesta.status_code}")
+    print(f"Status Code: {respuesta.status_code}")
     if respuesta.status_code == 200:
         py_dicts = respuesta.json()
         for dic in py_dicts:
