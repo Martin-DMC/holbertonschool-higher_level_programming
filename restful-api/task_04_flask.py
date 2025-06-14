@@ -14,7 +14,7 @@ users = {}
 def home():
     """
     this function return a simple message of welcome"""
-    return '¡Welcome to the Flask API!', 200
+    return jsonify('¡Welcome to the Flask API!'), 200
 
 
 @app.route('/status')
@@ -40,9 +40,11 @@ def user_name(username):
     Returns:
         successful the data specified or a error for not found"""
     try:
-        return jsonify(users[username]), 200
+        user = users[username]
+        return jsonify(user), 200
     except KeyError:
-        return jsonify({'error': 'User not found'}), 404
+        message = {'error': 'User not found'}
+        return jsonify(message), 404
 
 
 @app.route('/add_user', methods=['POST'])
@@ -56,7 +58,8 @@ def add_user():
     try:
         key = data_user['username']
     except KeyError:
-        return {"error": "Username is required"}, 400
+        message = {"error": "Username is required"}
+        return jsonify(message), 400
     users[key] = data_user
     retorno = {'message': 'user added', 'user': data_user}
     return jsonify(retorno), 201
