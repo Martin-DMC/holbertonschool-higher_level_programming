@@ -14,7 +14,7 @@ users = {}
 def home():
     """
     this function return a simple message of welcome"""
-    return "¡Welcome to the Flask API!", 200
+    return "Welcome to the Flask API!", 200
 
 
 @app.route('/status')
