@@ -85,7 +85,7 @@ def verify_password(username, password):
         user = users.get(username)
         pswd = user['password']
         if check_password_hash(pswd, password):
-            return user
+            return username
         return None
     return None
 
@@ -101,7 +101,8 @@ decoration for associate to the correct functions
 @app.route("/login", methods=["POST"])
 @auth.login_required
 def login():
-    user = auth.current_user()
+    username = auth.current_user()
+    user = users.get(username)
 
     access_token = create_access_token(identity=user)
     return jsonify(access_token=access_token)
@@ -133,4 +134,4 @@ def admin_only():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
