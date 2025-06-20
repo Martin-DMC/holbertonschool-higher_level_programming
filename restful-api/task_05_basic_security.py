@@ -103,6 +103,7 @@ decoration for associate to the correct functions
 def login():
     user = auth.current_user()
 
+
     access_token = create_access_token(identity=user)
     return jsonify(access_token=access_token)
 
@@ -114,13 +115,13 @@ def login():
 def jwt_protected():
     # Access the identity of the current user with get_jwt_identity
     claims = get_jwt()
-    return jsonify({'message': "JWT Auth: Access Granted"}), 200
+    return {'message': "JWT Auth: Access Granted"}, 200
 
 
 @app.route('/basic-protected', methods=['GET'])
 @auth.login_required
 def basic_protected():
-    return jsonify({'message': "Basic Auth: Access Granted"}), 200
+    return {'message': "Basic Auth: Access Granted"}, 200
 
 
 @app.route('/admin-only', methods=['GET'])
@@ -128,8 +129,8 @@ def basic_protected():
 def admin_only():
     user = get_jwt()
     if user and user.get('role') == 'admin':
-        return jsonify({'message': 'Admin Access: Granted'}), 200
-    return jsonify({'error': 'Admin access required'}), 403
+        return {'message': 'Admin Access: Granted'}, 200
+    return {'error': 'Admin access required'}, 403
 
 
 if __name__ == '__main__':
