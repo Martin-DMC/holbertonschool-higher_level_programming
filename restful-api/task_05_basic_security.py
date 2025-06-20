@@ -8,6 +8,7 @@ from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from flask_jwt_extended import create_access_token
+from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import get_jwt
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
@@ -47,17 +48,17 @@ def handle_invalid_token_error(err):
 
 
 @jwt.expired_token_loader
-def handle_expired_token_error(err):
+def handle_expired_token_error(jwt_header, jwt_payload):
     return jsonify({"error": "Token has expired"}), 401
 
 
 @jwt.revoked_token_loader
-def handle_revoked_token_error(err):
+def handle_revoked_token_error(jwt_header, jwt_payload):
     return jsonify({"error": "Token has been revoked"}), 401
 
 
 @jwt.needs_fresh_token_loader
-def handle_needs_fresh_token_error(err):
+def handle_needs_fresh_token_error(jwt_header, jwt_payload):
     return jsonify({"error": "Fresh token required"}), 401
 
 ######################################################
@@ -85,7 +86,7 @@ def verify_password(username, password):
         user = users.get(username)
         pswd = user['password']
         if check_password_hash(pswd, password):
-            return username
+            return user
         return None
     return None
 
@@ -101,11 +102,16 @@ decoration for associate to the correct functions
 @app.route("/login", methods=["POST"])
 @auth.login_required
 def login():
-    username = auth.current_user()
-    user = users.get(username)
+    data = request.get_json()
+    if not data or "username" not in data or "password" not in data:
+        return jsonify({"error": "Missing username or password"}), 400
 
-    access_token = create_access_token(identity=user)
-    return jsonify(access_token=access_token)
+    user = users.get(data["username"])
+    if user and check_password_hash(user["password"], data["password"]):
+        token = create_access_token(identity=user)
+        return jsonify(access_token=token), 200
+
+    return jsonify({"error": "Invalid credentials"}), 401
 
 
 # Protect a route with jwt_required, which will kick out requests
@@ -114,14 +120,13 @@ def login():
 @jwt_required()
 def jwt_protected():
     # Access the identity of the current user with get_jwt_identity
-    claims = get_jwt()
-    return {'message': "JWT Auth: Access Granted"}, 200
+    return jsonify({'message': "JWT Auth: Access Granted"}), 200
 
 
 @app.route('/basic-protected', methods=['GET'])
 @auth.login_required
 def basic_protected():
-    return {'message': "Basic Auth: Access Granted"}, 200
+    return jsonify({"message": "Basic Auth: Access Granted"}), 200
 
 
 @app.route('/admin-only', methods=['GET'])
@@ -129,8 +134,8 @@ def basic_protected():
 def admin_only():
     user = get_jwt()
     if user and user.get('role') == 'admin':
-        return {'message': 'Admin Access: Granted'}, 200
-    return {'error': 'Admin access required'}, 403
+        return jsonify({'message': 'Admin Access: Granted'}), 200
+    return jsonify({'error': 'Admin access required'}), 403
 
 
 if __name__ == '__main__':
