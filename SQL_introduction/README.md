@@ -1,0 +1,1 @@
+this directory contain all files related with MySQL for learn about this topic
