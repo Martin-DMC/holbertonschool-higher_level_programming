@@ -1,0 +1,2 @@
+-- lists all shows contained in hbtn_0d_tvshows without a genre linked
+SELECT s.title, g.genre_id FROM tv_shows AS s LEFT JOIN tv_show_genres AS g ON g.show_id = s.id WHERE genre_id IS NULL ORDER BY title, genre_id ASC;
