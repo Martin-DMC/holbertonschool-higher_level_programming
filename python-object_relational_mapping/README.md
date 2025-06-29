@@ -1,0 +1,1 @@
+on this directory storage all about python with sql. exercises with sqlalchemy and anything related
