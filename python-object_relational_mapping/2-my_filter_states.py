@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-this module a script  that list all states
-(if they comply with requirement) of the database
+this module a script  that list state pased as argument
+(if look match) of the database
 hbtn_0e_usa, connecting with a server local MySQL
 """
 import MySQLdb
@@ -12,6 +12,7 @@ if __name__ == "__main__":
     usr = argv[1]
     pswd = argv[2]
     datab = argv[3]
+    state = argv[4]
 
     db = None
     try:
@@ -23,8 +24,9 @@ if __name__ == "__main__":
             db=datab
         )
         cur = db.cursor()
-        cur.execute("SELECT id, name FROM states WHERE BINARY name LIKE 'N%'\
-                     ORDER BY id ASC;")
+        query = "SELECT id, name FROM states\
+                      WHERE name = %s ORDER BY id ASC;"
+        cur.execute(query, (state,))
         rows = cur.fetchall()
         for row in rows:
             print(f"({row[0]}, '{row[1]}')")
