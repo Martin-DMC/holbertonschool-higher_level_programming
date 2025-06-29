@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 this module a script  that list state pased as argument
-(if look match) of the database
+(if look match and safing from mysql injection) of the database
 hbtn_0e_usa, connecting with a server local MySQL
 """
 import MySQLdb
@@ -25,8 +25,8 @@ if __name__ == "__main__":
         )
         cur = db.cursor()
         query = "SELECT id, name FROM states\
-                      WHERE BINARY name = '{}' ORDER BY id ASC;".format(state)
-        cur.execute(query)
+                      WHERE BINARY name = %s ORDER BY id ASC;"
+        cur.execute(query, (state,))
         rows = cur.fetchall()
         for row in rows:
             print(f"({row[0]}, '{row[1]}')")
