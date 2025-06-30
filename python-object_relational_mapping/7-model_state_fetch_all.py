@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """
+in this module I define a script that make a query in sqlalchemy
+where lists all states of database
 """
 import sys
 from model_state import Base, State
