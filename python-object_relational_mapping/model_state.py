@@ -10,6 +10,10 @@ Base = declarative_base()
 
 
 class State(Base):
+    """
+    this class create a table links to the MySQL table 'states'.
+    inheriting of the base class that i import of sqlalchemy
+    """
 
     __tablename__ = 'states'
 
