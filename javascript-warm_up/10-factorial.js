@@ -12,7 +12,7 @@ function factorial (num) {
 
 const num = parseInt(argv[2]);
 if (isNaN(num)) {
-    console.log(factorial(1));
+  console.log(factorial(1));
 } else {
   console.log(factorial(num));
 }
