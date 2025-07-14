@@ -11,4 +11,8 @@ function factorial (num) {
 }
 
 const num = parseInt(argv[2]);
-console.log(factorial(num));
+if (isNaN(num)) {
+    console.log(factorial(1));
+} else {
+  console.log(factorial(num));
+}
