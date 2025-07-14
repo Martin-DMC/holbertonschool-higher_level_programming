@@ -1,8 +1,6 @@
 #!/usr/bin/node
-function add(a, b) {
+function add (a, b) {
   const result = a + b;
   return result;
 }
-module.exports = {
-  add: add
-};
+module.exports = { add: add };
