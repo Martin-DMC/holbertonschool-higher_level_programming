@@ -1,0 +1,1 @@
+in this directory, i have exercises to practice the manipulation of dom in JavaScript
