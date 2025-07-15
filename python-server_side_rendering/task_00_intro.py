@@ -32,16 +32,7 @@ def generate_invitations(template, attendees):
         print("Error: es necesario una lista de invitados")
         return
 
-    if not os.path.exists(template):
-        print("Error: la plantilla no fue encontrada")
-        return
-
-    try:
-        with open(template, "r") as plantilla:
-            copia = plantilla.read()
-    except IOError as e:
-        print(f"Error al leer la plantilla: {e}")
-        return
+    copia = template
 
     for i, datos in enumerate(attendees):
         name = datos.get('name', 'N/A')
@@ -63,8 +54,8 @@ def generate_invitations(template, attendees):
         try:
             with open(f"output_{i}.txt", "w") as archivo:
                 archivo.write(new_plantilla)
+                print("Successful Generation")
         except IOError as e:
             print(f"Error al escribir la invitacion: {e}")
         except Exception as e:
             print(f"Error inesperado al generar archivo: {e}")
-
