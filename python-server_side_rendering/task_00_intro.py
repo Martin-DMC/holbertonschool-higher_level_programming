@@ -52,7 +52,7 @@ def generate_invitations(template, attendees):
         with_date = with_event.replace('{event_date}', date)
         new_plantilla = with_date.replace('{event_location}', location)
         try:
-            with open(f"output_{i}.txt", "w") as archivo:
+            with open(f"output_{i + 1}.txt", "w") as archivo:
                 archivo.write(new_plantilla)
                 print("Successful Generation")
         except IOError as e:
