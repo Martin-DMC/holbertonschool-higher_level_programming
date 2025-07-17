@@ -37,10 +37,11 @@ def items():
 @app.route('/products')
 def products():
     query_parameter = request.args.get('source')
+    parameter_id = request.args.get('id')
     list_products = []
     url_json = 'products.json'
     url_csv = 'products.csv'
-    if query_parameter == 'json':
+    if query_parameter == 'json' and parameter_id is None:
         if os.path.exists(url_json):
             try:
                 with open(url_json, "r") as archivo:
@@ -49,17 +50,29 @@ def products():
             except json.JSONDecodeError:
                 print('archivo invalido')
             return render_template('product_display.html', products=list_products)
-    elif query_parameter == 'csv':
+    elif query_parameter == 'csv' and parameter_id is None:
         if os.path.exists(url_csv):
             try:
                 with open(url_csv, newline='') as csvfile:
                     data = csv.DictReader(csvfile, delimiter=',')
-                    list_products = data
-            except:
-                pass
+                    for fila in data:
+                        list_products.append(fila)
+            except csv.Error:
+                print('archivo invalido')
             return render_template('product_display.html', products=list_products)
+    elif parameter_id:
+        parameter_id = int(parameter_id)
+        with open(url_json, "r") as archivo:
+                    data = json.load(archivo)
+                    for prod in data:
+                        if prod['id'] == parameter_id:
+                            list_products.append(prod)
+        if len(list_products) != 0:
+            return render_template('product_display.html', products=list_products)
+        else:
+            return render_template('product_display.html', mensaje="Product not found")
     else:
-        return render_template('product_display.html')
+        return render_template('product_display.html', mensaje="Wrong source")
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
