@@ -1,0 +1,1 @@
+in this directory, i have some answer related python about all in this language it's a object
